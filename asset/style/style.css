@@ -1,0 +1,253 @@
+*{
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    text-decoration: none !important;
+}
+#logo{
+    box-shadow:1px 1px 2px 1px white;
+    width: 5rem;
+    height: 2rem;
+}
+.navbar{
+    justify-content: space-evenly !important;
+    flex-wrap : wrap;
+    
+     width: 400px;
+     display: flex ;
+}
+.navbar a{
+    color: white;
+}
+.navbar a:hover{
+    color: coral;
+}
+header{
+    justify-content: space-around ;
+    background-color: rgb(17, 17, 16);
+    align-items: center !important;
+    min-height: 10vh;
+    display: flex ;
+}
+main{ 
+    background-color: bisque;
+    min-height: 80vh;
+}
+
+
+.section-1{
+    background-color: black;
+} 
+.section{
+    align-items: center !important;
+    justify-content: center !important;
+    display: flex ;
+    background-repeat:no-repeat;
+    background-position: center !important;
+    background-size: cover;
+    min-height: 10vh;
+    background-image: url(../images/Books.jpg);
+}
+h1{
+    background-color: rgba(0, 0, 0, 0.288);
+    color: white !important;
+}
+form{
+    background-color: rgba(0, 0, 0, 0.986);
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    min-height: 10vh;
+}
+.box-container{
+    color: white;
+    justify-content: space-between;
+    display: flex;
+    width: 35rem;
+}
+.search{
+    width: 320px;
+    height: 40px;
+    display: flex;
+}
+.section-art{
+    padding-top: 10px !important;
+    min-height: 50vh;
+    align-items: center !important;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    display: flex;
+}
+footer{
+    justify-content: space-evenly;
+    background-color: rgb(109, 100, 100);
+    min-height: 10vh;
+}
+.div-img img{
+    width: 3rem;
+}
+.div-img{
+    justify-content: space-evenly;
+    width: 200px !important;
+}
+.card img{
+    width: 286px;
+    height: 190.31px;
+}
+.card {
+    margin-right: 10px !important;
+    box-shadow: 5px 5px 5px 10px !important;
+    margin-bottom: 25px !important;
+    text-align: center;
+}
+.formulario{
+    background-image: linear-gradient(rgb(252, 232, 190), rgb(209, 198, 175), rgb(165, 129, 82), rgb(255, 229, 197));
+    
+    min-height: 70vh;
+
+}
+.contact-txt{
+    color: white;
+    /* justify-content: space-evenly !important; */
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+}
+.submit{
+    margin-top: 12px !important;
+    align-self: flex-end;
+    width: 70px;
+}
+.formulario img{
+      
+      width: 8rem;
+}
+
+.div-articulos{
+    margin-top: 15px !important;
+    min-height: 65vh;
+    align-items: center !important;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.articulo-txt{
+    margin-right: 8px !important;
+    text-align: center !important;
+    text-transform:initial;
+    font-size: 15px;
+    text-align: left;
+    height: auto;
+    width: 250px;
+}
+.card-body{
+    width: 285px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.card-body a{
+    
+    border: 1px solid rgb(3, 255, 3) !important;
+    color: rgb(0, 0, 0) !important;
+    background-color: rgb(70, 238, 19);
+   justify-content: right !important;
+   
+
+}
+.articulo-img{  
+    
+    box-shadow: 5px 5px 5px 6px !important;
+    width: 250px;
+}
+
+
+.col-8{
+    
+    box-shadow: 1px 1px 8px 8px rgb(201, 79, 79);
+}
+table, th,td{
+    border: 2px solid black !important;
+    border-collapse: collapse !important;
+}
+.td-txt{
+    background-color: gray !important;
+    color: rgb(0, 0, 0) !important;
+    font-weight: 800 !important;
+    
+}
+.div-table{
+    margin-top: 2rem !important;
+}
+td:hover{
+    color: white;
+   background-color: rgb(75, 58, 58) !important;
+}
+
+/* cards */
+
+
+.main-cards{
+    
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    
+}
+
+.section-4{
+    background-color: black;
+    width: 100%;
+}
+
+
+@media(min-width:320px) and (max-width:768px){
+
+    header{
+        z-index: 1;
+        position: sticky;
+        top: 0;
+        min-height: 20vh;
+        flex-wrap: wrap;
+    }
+      #logo{
+        margin: 8px 0 !important;
+        width:100px ;
+      }
+    .navbar {
+       
+        font-size: 20px !important;
+        height: 100px;
+        width: 450px;
+       
+    }
+    .navbar > a{
+        padding: 0 8px !important;
+    }
+    
+    .formulario-genera{
+        z-index: 1;
+        position: sticky;
+        top: 50px !important;
+    }
+    
+    .div-img{
+        text-align: center;
+        width: 320px !important;
+        padding: 10px 0 !important;
+    }
+    footer{
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    h3{
+        font-size: 2rem !important;
+    }
+
+
+
+}
