@@ -4,6 +4,7 @@
     box-sizing: border-box !important;
     text-decoration: none !important;
 }
+
 #logo{
     box-shadow:1px 1px 2px 1px white;
     width: 5rem;
@@ -20,6 +21,7 @@
     color: white;
 }
 .navbar a:hover{
+    transform: scale(1.2, 1.2);
     color: coral;
 }
 header{
@@ -53,18 +55,39 @@ h1{
     color: white !important;
 }
 form{
-    background-color: rgba(0, 0, 0, 0.986);
     flex-wrap: wrap;
+    background-color: rgba(0, 0, 0, 0.986);
     align-items: center;
     justify-content: space-around;
     display: flex;
     min-height: 10vh;
 }
 .box-container{
+    border: none !important;
+    flex-wrap: wrap;
     color: white;
     justify-content: space-between;
     display: flex;
-    width: 35rem;
+    width: 38rem;
+}
+
+label:hover{
+    transform: scale(1.1, 1.1);
+}
+
+label{
+   
+    margin-bottom:5px !important;
+    font-weight: 600;
+    color: black;
+    background-color: white;
+    align-items: center !important;
+    justify-content: space-evenly;
+    padding-left: 18px;
+    display: flex !important;
+    width: 90px !important;
+    border-radius: 20px;
+    border: 1px solid white;
 }
 .search{
     width: 320px;
@@ -72,8 +95,14 @@ form{
     display: flex;
 }
 .section-art{
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+     background-image:url(../images/poso.jpg) !important;
+    background: linear-gradient(rgba(214, 15, 15, 0.116), rgba(158, 114, 114, 0.171)); 
     padding-top: 10px !important;
-    min-height: 50vh;
+    min-height: 60vh;
     align-items: center !important;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -91,23 +120,55 @@ footer{
     justify-content: space-evenly;
     width: 200px !important;
 }
+
+/* #cards img:hover{
+   
+    position: absolute !important;
+    animation: unset !important;
+    transform: scale(1, 1) !important;
+    
+  
+    
+    
+} */
+
+.card img:hover{
+    transform: scale(1, 1) !important;
+}
+
 .card img{
+    
+    
     width: 286px;
     height: 190.31px;
 }
+
 .card {
+    
+    backdrop-filter:blur(25px);
+    min-height: 20vh !important;
+    background: transparent !important;
     margin-right: 10px !important;
-    box-shadow: 5px 5px 5px 10px !important;
+    box-shadow: 3px 2px 5px 5px rgba(235, 237, 241, 0.438) !important;
     margin-bottom: 25px !important;
     text-align: center;
 }
+
+
 .formulario{
     background-image: linear-gradient(rgb(252, 232, 190), rgb(209, 198, 175), rgb(165, 129, 82), rgb(255, 229, 197));
     
-    min-height: 70vh;
+    min-height: 60vh;
 
 }
+
+.contact-txt label{
+    justify-content: start;
+    border: none !important;
+    background-color: rgba(255, 0, 0, 0) !important;
+}
 .contact-txt{
+ 
     color: white;
     /* justify-content: space-evenly !important; */
     height: 20rem;
@@ -128,9 +189,20 @@ footer{
     margin-top: 15px !important;
     min-height: 65vh;
     align-items: center !important;
-    justify-content: space-around;
+    justify-content: space-around !important;
     flex-wrap: wrap;
     display: flex;
+}
+
+.articulo-txt:hover{
+    background-color: bisque !important;
+    margin-left: 10px !important;
+    box-shadow: 5px 10px 20px 10px;
+    /* position: relative !important; */
+   /*  top: 0 !important; */
+    /* transform: translateY(100%); */
+   /*  animation: unset; */
+    transform: scale(1.1, 1.2);
 }
 
 .articulo-txt{
@@ -143,36 +215,81 @@ footer{
     width: 250px;
 }
 .card-body{
+    font-size: 15px;
+    height: 300px !important;
+    color: white !important;
     width: 285px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    
+    align-items: center !important;
     
 }
 
-.card-body a{
-    
-    border: 1px solid rgb(3, 255, 3) !important;
-    color: rgb(0, 0, 0) !important;
-    background-color: rgb(70, 238, 19);
-   justify-content: right !important;
+.card-body .btn:hover{
+ position: absolute !important;
+ bottom: 5px;
+ right: 10px;
+ transform: scale(1.2, 1.2) !important; 
+ background-color: rgb(248, 248, 248) !important;
+}
+.btn-pre {
+    justify-content: space-between;
+  
+ 
+  position: absolute;
+  bottom: 5px;
+  display: flex;
+  width: 250px !important;
+  position: absolute !important;
+  top: auto;
+ 
+
+}
+ .card-body .btn{
    
-
-}
-.articulo-img{  
+    border-radius: 10px;
+    font-weight: 600;
+    border: 1px solid rgba(240, 240, 240, 0.404) !important;
+    color: rgb(0, 0, 0) !important;
+    background-color: rgba(212, 212, 212, 0.486);
     
-    box-shadow: 5px 5px 5px 6px !important;
+   
+   
+    
+
+} 
+
+.articulo-img:hover{
+    
+    
+    box-shadow: 1px 1px 5px 6px rgba(0, 0, 0, 0.329) !important;
+}
+
+.articulo-img{  
+   
     width: 250px;
+}
+.articulo-img img:hover{
+     box-shadow: 5px 10px 20px 10px;
+     position: absolute !important;
+    /*  top: 0 !important; */
+     transform: translateY(100%);
+    /*  animation: unset; */
+     transform: scale(1, 1);
 }
 
 
 .col-8{
     
-    box-shadow: 1px 1px 8px 8px rgb(201, 79, 79);
+    box-shadow: 1px 1px 8px 8px rgb(175, 15, 15);
 }
 table, th,td{
     border: 2px solid black !important;
     border-collapse: collapse !important;
+}
+.td-txt:hover{
+  background-color: gray !important;
 }
 .td-txt{
     background-color: gray !important;
@@ -181,18 +298,19 @@ table, th,td{
     
 }
 .div-table{
+    background-color: bisque;
     margin-top: 2rem !important;
 }
 td:hover{
-    color: white;
-   background-color: rgb(75, 58, 58) !important;
+   /*  box-shadow:5px 5px 6px 5px; */
+   background-color: rgb(253, 253, 253) !important;
 }
 
 /* cards */
 
 
 .main-cards{
-    
+    background-color: bisque;
     align-items: center;
     flex-direction: column;
     display: flex;
@@ -213,6 +331,9 @@ td:hover{
         top: 0;
         min-height: 20vh;
         flex-wrap: wrap;
+    }
+    main{
+        flex-grow: 1;
     }
       #logo{
         margin: 8px 0 !important;
@@ -240,7 +361,11 @@ td:hover{
         width: 320px !important;
         padding: 10px 0 !important;
     }
+
+    
+
     footer{
+        min-height: 15vh;
         justify-content: center;
         flex-wrap: wrap;
     }
@@ -248,6 +373,26 @@ td:hover{
         font-size: 2rem !important;
     }
 
+    .card-body{
+        height: 13rem !important;
+    }
+
+}
+
+@media(min-width:769px){
+    .articulo-img img:hover{
+        width: 30rem;
+        box-shadow: 5px 10px 20px 10px;
+        position: absolute !important;
+        top: 250PX !important;
+        transform: scale(1, 1.2);
+     
+       
+   }
 
 
+   .articulo-txt{
+    margin-right: 50px !important;
+   }
+   
 }
