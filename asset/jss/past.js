@@ -1,44 +1,77 @@
+let cajabusqueda = document.getElementById("search")
+let Checkbox = document.querySelector("#boxCaja")
+let inputBusqueda = document.getElementById("busqueda")
+let seccion = document.getElementById("sectionart")
 
 const todasCartas = data 
 const currentDatec = data.currentDate
 
 
+const nombreEvents = todasCartas.events.map(events => events.category).filter((category, index, arry) => arry.indexOf(category) == index );
 
 
+const eventspast = todasCartas.events.filter((events) => events.date <= currentDatec ) 
 
 
-let seccion = document.getElementById("sectionart")
-
-function crearCar(events ){
-  return ` <article id="cards1" class="card" style="width: 18rem;">
-  <img src=${events.image} class="card-img-top" alt="...">
-<div class="card-body">
-  <h5 class="card-title">${events.name}</h5>
-
-  <p>${events.category}</p>
-  <p>${events.place}</p>
-  <p>${events.capacity}</p>
-  <p>${events.assistance}</p>
-  <p class="card-text">${events.description}</p>
-  <p>${events.date}</p>
-  <div class="btn-pre">
-  <a>${events.price}</a>
-  <a href="./cards.html" class="btn btn-primary">see more</a>
-  </div>
-</div>
-</article>
-  
+const crearCheckbox = nombreEvents.reduce((acumulador, element, indice, array) =>{
+  return acumulador += `
+  <label class="labelcaja" for="${element}">
+  <input type="checkbox" name="${element}" value="${element}"  id="${element}">
+  ${element}</label>
   `
-}
-
-function cartas(todasCartas, car){
-  car.innerHTML = ""
-  let template = ""
-  todasCartas.forEach(events => template += crearCar(events) )
-  car.innerHTML = template
-}
-const eventsPast = todasCartas.events.filter((events) => events.date < currentDatec )  
-cartas(eventsPast, seccion)
+  
+  
+}, '')
+Checkbox.innerHTML = crearCheckbox;
 
 
-console.log(eventsPast)
+/* crearCar(eventspast, seccion) */
+function crearCar(objeto){
+  console.log(objeto)
+  return objeto.reduce(( acumulado, element) =>{
+     return acumulado += `<article id="cards1" class="card" style="width: 18rem;">
+     <img src=${element.image} class="card-img-top" alt="...">
+   <div class="card-body">
+     <h5 class="card-title">${element.name}</h5>
+     <p>${element.category}</p>
+     <div class="btn-pre">
+     <a href="./cards.html?id=${element._id}&nombre=${element.name}&category=${element.category}&imagen=${element.image} class="btn btn-primary">see more</a>
+     </div>
+     </div>
+     </article>`
+    }, '')
+    
+  }
+  seccion.innerHTML = crearCar( eventspast)
+  
+
+
+  Checkbox.addEventListener('change',  ()=>{
+    let CBchecked = Array.from( document.querySelectorAll( 'input[type= "checkbox"]:checked' )).map(check => check.value) 
+    let fCards = filterCards(eventspast, CBchecked) 
+    console.log(fCards)
+    seccion.innerHTML = crearCar(fCards)
+   
+  })
+  
+  
+  function filterCards(eventspast, array){
+    console.log(array)
+    if(array.length == 0){
+      return eventspast
+    }
+    return eventspast.filter((events) => array.includes(events.category) )
+    
+  }
+
+
+  inputBusqueda.addEventListener('input', ()=>{
+    const filtrarPorBusqueda = filtrarPorTitulo(eventspast, inputBusqueda.value)
+      
+      seccion.innerHTML = crearCar(filtrarPorBusqueda)
+    })
+  
+  //filtrar por titulo 
+  function filtrarPorTitulo(eventspast, busqueda ){
+    return eventspast.filter((events) => events.name.toLowerCase().includes(busqueda.toLowerCase()))
+  }

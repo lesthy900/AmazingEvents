@@ -13,7 +13,6 @@
 .navbar{
     justify-content: space-evenly !important;
     flex-wrap : wrap;
-    
      width: 400px;
      display: flex ;
 }
@@ -22,7 +21,7 @@
 }
 .navbar a:hover{
     transform: scale(1.2, 1.2);
-    color: coral;
+    color: rgb(0, 0, 0);
 }
 header{
     justify-content: space-around ;
@@ -35,7 +34,6 @@ main{
     background-color: bisque;
     min-height: 80vh;
 }
-
 
 .section-1{
     background-color: black;
@@ -54,11 +52,20 @@ h1{
     background-color: rgba(0, 0, 0, 0.288);
     color: white !important;
 }
+#boxCaja{
+display: flex !important;
+    width: 70rem;
+}
+#formPadre{
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: row;
+}
 form{
+    width: auto;
     flex-wrap: wrap;
     background-color: rgba(0, 0, 0, 0.986);
     align-items: center;
-    justify-content: space-around;
     display: flex;
     min-height: 10vh;
 }
@@ -72,30 +79,32 @@ form{
 }
 
 label:hover{
+    border-bottom: solid 1px white;
+    color: rgb(255, 255, 255);
+    background-color: black;
     transform: scale(1.1, 1.1);
 }
 
 label{
-   
+
+     
+    font-size: 14px;
+    justify-content: center !important;
     margin-bottom:5px !important;
-    font-weight: 600;
     color: black;
-    background-color: white;
-    align-items: center !important;
-    justify-content: space-evenly;
-    padding-left: 18px;
+    background-color: rgb(255, 255, 255);
     display: flex !important;
-    width: 90px !important;
+    width: 120px !important;
     border-radius: 20px;
-    border: 1px solid white;
+    border: 1px solid rgb(0, 0, 0);
 }
+
 .search{
     width: 320px;
     height: 40px;
     display: flex;
 }
 .section-art{
-
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -121,30 +130,16 @@ footer{
     width: 200px !important;
 }
 
-/* #cards img:hover{
-   
-    position: absolute !important;
-    animation: unset !important;
-    transform: scale(1, 1) !important;
-    
-  
-    
-    
-} */
-
 .card img:hover{
     transform: scale(1, 1) !important;
 }
 
 .card img{
-    
-    
     width: 286px;
     height: 190.31px;
 }
 
 .card {
-    
     backdrop-filter:blur(25px);
     min-height: 20vh !important;
     background: transparent !important;
@@ -154,12 +149,10 @@ footer{
     text-align: center;
 }
 
-
 .formulario{
+    justify-content: center;
     background-image: linear-gradient(rgb(252, 232, 190), rgb(209, 198, 175), rgb(165, 129, 82), rgb(255, 229, 197));
-    
     min-height: 60vh;
-
 }
 
 .contact-txt label{
@@ -168,7 +161,6 @@ footer{
     background-color: rgba(255, 0, 0, 0) !important;
 }
 .contact-txt{
- 
     color: white;
     /* justify-content: space-evenly !important; */
     height: 20rem;
@@ -207,21 +199,21 @@ footer{
 
 .articulo-txt{
     margin-right: 8px !important;
-    text-align: center !important;
+    
+    text-align: start !important;
     text-transform:initial;
-    font-size: 15px;
+    font-size: 20px;
     text-align: left;
-    height: auto;
+    height:auto ;
     width: 250px;
 }
 .card-body{
     font-size: 15px;
-    height: 300px !important;
+    height: 150px !important;
     color: white !important;
     width: 285px;
     display: flex;
     flex-direction: column;
-    
     align-items: center !important;
     
 }
@@ -235,8 +227,6 @@ footer{
 }
 .btn-pre {
     justify-content: space-between;
-  
- 
   position: absolute;
   bottom: 5px;
   display: flex;
@@ -244,7 +234,6 @@ footer{
   position: absolute !important;
   top: auto;
  
-
 }
  .card-body .btn{
    
@@ -252,11 +241,7 @@ footer{
     font-weight: 600;
     border: 1px solid rgba(240, 240, 240, 0.404) !important;
     color: rgb(0, 0, 0) !important;
-    background-color: rgba(212, 212, 212, 0.486);
-    
-   
-   
-    
+    background-color: rgba(212, 212, 212, 0.486); 
 
 } 
 
@@ -279,7 +264,6 @@ footer{
      transform: scale(1, 1);
 }
 
-
 .col-8{
     
     box-shadow: 1px 1px 8px 8px rgb(175, 15, 15);
@@ -294,10 +278,10 @@ table, th,td{
 .td-txt{
     background-color: gray !important;
     color: rgb(0, 0, 0) !important;
-    font-weight: 800 !important;
-    
+    font-weight: 800 !important; 
 }
 .div-table{
+    width:100%;
     background-color: bisque;
     margin-top: 2rem !important;
 }
@@ -305,9 +289,6 @@ td:hover{
    /*  box-shadow:5px 5px 6px 5px; */
    background-color: rgb(253, 253, 253) !important;
 }
-
-/* cards */
-
 
 .main-cards{
     background-color: bisque;
@@ -321,7 +302,6 @@ td:hover{
     background-color: black;
     width: 100%;
 }
-
 
 @media(min-width:320px) and (max-width:768px){
 
@@ -348,6 +328,21 @@ td:hover{
     }
     .navbar > a{
         padding: 0 8px !important;
+        
+    }
+    form{
+        flex-direction: row;
+        z-index: 1;
+        position: sticky;
+        top: 148px;
+    }
+    label{
+        width: 150px !important;
+        
+    }
+    #boxCaja label{
+        padding-left: 10px !important;
+        justify-content: start !important;
     }
     
     .formulario-genera{
@@ -374,7 +369,7 @@ td:hover{
     }
 
     .card-body{
-        height: 13rem !important;
+        height: 10rem !important;
     }
 
 }
