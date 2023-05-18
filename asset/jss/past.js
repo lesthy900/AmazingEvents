@@ -2,15 +2,21 @@ let cajabusqueda = document.getElementById("search")
 let Checkbox = document.querySelector("#boxCaja")
 let inputBusqueda = document.getElementById("busqueda")
 let seccion = document.getElementById("sectionart")
+let todasCartas;
+let currentDate;
 
-const todasCartas = data 
-const currentDatec = data.currentDate
+fetch('https://mindhub-xj03.onrender.com/api/amazing')
+.then( data => data.json( ) )
+.then( res =>{ 
+ todasCartas = res;
+ currentDate = res.currentDate;
 
+ const eventspast = todasCartas.events.filter((events) => events.date <= currentDate ) 
+ 
+ seccion.innerHTML = crearCar(  eventspast)
+ 
+const nombreEvents = todasCartas.events .map(events => events.category).filter((category, index, arry) => arry.indexOf(category) == index );
 
-const nombreEvents = todasCartas.events.map(events => events.category).filter((category, index, arry) => arry.indexOf(category) == index );
-
-
-const eventspast = todasCartas.events.filter((events) => events.date <= currentDatec ) 
 
 
 const crearCheckbox = nombreEvents.reduce((acumulador, element, indice, array) =>{
@@ -24,11 +30,33 @@ const crearCheckbox = nombreEvents.reduce((acumulador, element, indice, array) =
 }, '')
 Checkbox.innerHTML = crearCheckbox;
 
+Checkbox.addEventListener('change',  ()=>{
+  let CBchecked = Array.from( document.querySelectorAll( 'input[type= "checkbox"]:checked' )).map(check => check.value) 
+  let fCards = filterCards(eventspast, CBchecked) 
+  let filtroCROsover = filtrarPorTitulo( fCards, inputBusqueda.value)
+  seccion.innerHTML = crearCar(filtroCROsover,fCards)
+ 
+})
+
+inputBusqueda.addEventListener('input', ()=>{
+  let CBchecked = Array.from( document.querySelectorAll( 'input[type= "checkbox"]:checked' )).map(check => check.value) 
+  let fCards = filterCards(eventspast, CBchecked) 
+  let filtroCROsover = filtrarPorTitulo( fCards, inputBusqueda.value)
+  seccion.innerHTML = crearCar(filtroCROsover,fCards)
+  })
+
+
+
+
+
+} )
+
+
 
 /* crearCar(eventspast, seccion) */
-function crearCar(objeto){
-  console.log(objeto)
-  return objeto.reduce(( acumulado, element) =>{
+ function crearCar(bojeto){
+  
+  return bojeto.reduce(( acumulado, element) =>{
      return acumulado += `<article id="cards1" class="card" style="width: 18rem;">
      <img src=${element.image} class="card-img-top" alt="...">
    <div class="card-body">
@@ -42,18 +70,7 @@ function crearCar(objeto){
     }, '')
     
   }
-  seccion.innerHTML = crearCar( eventspast)
-  
-
-
-  Checkbox.addEventListener('change',  ()=>{
-    let CBchecked = Array.from( document.querySelectorAll( 'input[type= "checkbox"]:checked' )).map(check => check.value) 
-    let fCards = filterCards(eventspast, CBchecked) 
-    console.log(fCards)
-    seccion.innerHTML = crearCar(fCards)
-   
-  })
-  
+ 
   
   function filterCards(eventspast, array){
     console.log(array)
@@ -63,15 +80,11 @@ function crearCar(objeto){
     return eventspast.filter((events) => array.includes(events.category) )
     
   }
-
-
-  inputBusqueda.addEventListener('input', ()=>{
-    const filtrarPorBusqueda = filtrarPorTitulo(eventspast, inputBusqueda.value)
-      
-      seccion.innerHTML = crearCar(filtrarPorBusqueda)
-    })
   
+  
+ 
   //filtrar por titulo 
   function filtrarPorTitulo(eventspast, busqueda ){
     return eventspast.filter((events) => events.name.toLowerCase().includes(busqueda.toLowerCase()))
-  }
+  } 
+

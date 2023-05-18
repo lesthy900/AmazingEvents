@@ -2,13 +2,24 @@
 const contenedorMain = document.getElementById("maincards")
 const params = new URLSearchParams(location.search)
 const idparams = params.get('id')
-const todoLosDa = data
-let todoLosDatos = todoLosDa.events.find(events => events._id == idparams  )
 console.log(idparams)
+let nuevaData;
+/* let todoLosDatos = todoLosDa.events.find(events => events._id == idparams  ) */
+
+fetch('https://mindhub-xj03.onrender.com/api/amazing')
+.then(data => data.json( ) )
+.then(res =>{
+  nuevaData = res
+    
+  let todoLosDatos = nuevaData.events.find(events => events._id == idparams  )
+  console.log(todoLosDatos)
+  
+
+  
+  const asistencia_Estimate = definirFecha(todoLosDatos.date, data.currentDate )
 
 
-const asistencia_Estimate = definirFecha (todoLosDatos.date, data.currentDate )
-console.log(asistencia_Estimate)
+console.log(todoLosDatos.date)
 
 function definirFecha(evento, date){
   if (evento > date) {
@@ -21,7 +32,7 @@ function definirFecha(evento, date){
 
 
 
-/* document.title = `Detalles de ${todoLosDatos.name}` */
+
 
 contenedorMain.innerHTML = `
 <section class="section-4 d-flex justify-content-center ">
@@ -47,11 +58,12 @@ contenedorMain.innerHTML = `
                    <p>${todoLosDatos.description}</p>
                    <div class=" d-flex col-12  gap-5 flex-column  " >  
                   <li>capacity: ${todoLosDatos.capacity}</li>
-                  <li>${asistencia_Estimate}</li>
+                     ${asistencia_Estimate}
                   <li>price: ${todoLosDatos.price}</li>
 
                 </div>
                 </article>
                 
             </div>
-`
+` 
+})

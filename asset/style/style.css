@@ -10,6 +10,13 @@
     width: 5rem;
     height: 2rem;
 }
+.btn-cerrar{
+    display: none;
+}
+
+.btn-nav{
+    display: none;
+}
 .navbar{
     justify-content: space-evenly !important;
     flex-wrap : wrap;
@@ -82,7 +89,7 @@ label:hover{
     border-bottom: solid 1px white;
     color: rgb(255, 255, 255);
     background-color: black;
-    transform: scale(1.1, 1.1);
+   /*  transform: scale(1.1, 1.1); */
 }
 
 label{
@@ -303,10 +310,24 @@ td:hover{
     width: 100%;
 }
 
+.main-table{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center !important;
+    background-color: black;
+}
+
+#div-tabla{
+    background-color: black;
+    width: auto;
+   
+}
+
 @media(min-width:320px) and (max-width:768px){
 
     header{
-        z-index: 1;
+        z-index: 3;
         position: sticky;
         top: 0;
         min-height: 20vh;
@@ -319,23 +340,30 @@ td:hover{
         margin: 8px 0 !important;
         width:100px ;
       }
-    .navbar {
-       
+   .navbar {
+    z-index: 2;
+        /* visibility: hidden !important;
+        opacity: 0 !important; */
+        /* display: none !important; */
         font-size: 20px !important;
-        height: 100px;
-        width: 450px;
+        background-color: rgb(0, 0, 0);
+        width: 250px;
+        flex-direction: column !important;
+    /*     position: absolute!important;
+        top: 0;
+        right: 0;
+        height: 40rem;
+        align-items: end;
+        padding: 2rem !important;
+        box-shadow: 0 0 0 100vmax rgb(0, 0, 0, .5); */
+
        
     }
-    .navbar > a{
-        padding: 0 8px !important;
-        
+   .navbar.visible{
+        opacity: 1 !important;
+        visibility: visible !important;
     }
-    form{
-        flex-direction: row;
-        z-index: 1;
-        position: sticky;
-        top: 148px;
-    }
+
     label{
         width: 150px !important;
         
@@ -345,11 +373,11 @@ td:hover{
         justify-content: start !important;
     }
     
-    .formulario-genera{
+  /*   .formulario-genera{
         z-index: 1;
         position: sticky;
         top: 50px !important;
-    }
+    } */
     
     .div-img{
         text-align: center;
@@ -372,6 +400,7 @@ td:hover{
         height: 10rem !important;
     }
 
+  
 }
 
 @media(min-width:769px){
@@ -389,5 +418,19 @@ td:hover{
    .articulo-txt{
     margin-right: 50px !important;
    }
+   
+}
+
+
+@media(max-width:320px){
+   
+ #formPadre{
+    z-index: 1;
+    position: sticky !important ;
+    top: 198px;
+} 
+
+
+
    
 }
